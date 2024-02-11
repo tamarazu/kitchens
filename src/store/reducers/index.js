@@ -1,5 +1,8 @@
 import { combineReducers } from 'redux';
-import types from '../types'
+import {
+  SET_LOADING,
+  SET_ERROR
+} from '../types'
 
 const initialState = {
   loading: false,
@@ -8,12 +11,12 @@ const initialState = {
 
 const reducers = (state = initialState, action) => {
   switch(action.type) {
-    case types.SET_LOADING: 
+    case SET_LOADING: 
       return {
         ...state,
         loading: action.payload
       }
-    case types.SET_ERROR:
+    case SET_ERROR:
       return {
         ...state,
         loading: action.payload

@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily:{
+      'display': ['Protest Strike']
+    }
   },
-  plugins: [],
-}
+  plugins: [
+  ],
+};

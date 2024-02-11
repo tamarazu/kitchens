@@ -1,20 +1,22 @@
+// import { Switch } from "@headlessui/react";
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom'
-import { Homepage } from 'views'
+import { createBrowserRouter } from "react-router-dom";
+import DetailRecipe from "views/DetailRecipe";
+import LandingPage from "views/LandingPage";
+import Recipes from "views/Recipes";
 
 
-export default routes = () => {
-  return (
-    <>
-      <Router>
-        <Switch>
-          <Route path="/"  component={Homepage}/>
-        </Switch>
-      </Router>
-    </>
-  )
-}
+export const routes = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage/>,
+  },
+  {
+    path: "/recipes",
+    element: <Recipes/>,
+  },
+  {
+    path: "/recipes/:id",
+    element: <DetailRecipe/>,
+  },
+]);
