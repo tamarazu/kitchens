@@ -1,15 +1,15 @@
-import { SET_LOADING, SET_ERROR } from '../types'
+import types from '../types/index'
 
 export const set_loading = (value) => {
   return {
-    type: SET_LOADING,
+    type: types.SET_LOADING,
     payload: value
   }
 }
 
 export const set_error = (value) => {
   return {
-    type: SET_ERROR,
+    type: types.SET_ERROR,
     payload: value
   }
 }

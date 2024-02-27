@@ -1,8 +1,6 @@
 import { combineReducers } from 'redux';
-import {
-  SET_LOADING,
-  SET_ERROR
-} from '../types'
+import types from '../types'
+import recipeReducers from './recipe'
 
 const initialState = {
   loading: false,
@@ -11,12 +9,12 @@ const initialState = {
 
 const reducers = (state = initialState, action) => {
   switch(action.type) {
-    case SET_LOADING: 
+    case types.SET_LOADING: 
       return {
         ...state,
         loading: action.payload
       }
-    case SET_ERROR:
+    case types.SET_ERROR:
       return {
         ...state,
         loading: action.payload
@@ -27,5 +25,6 @@ const reducers = (state = initialState, action) => {
 }
 
 export default combineReducers({
-  reducers
+  reducers,
+  recipeReducers
 })
