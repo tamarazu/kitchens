@@ -10,15 +10,14 @@ export const set_random_recipes = (value) => {
   };
 };
 
-export const getRandomRecipes = () => async (dispatch) => {
+export const getRandomRecipes = (params) => async (dispatch) => {
   try {
     dispatch(set_loading(true));
     const { data, status } = await Axios.get(GET_RANDOM_RECIPE, {
-      number: 6,
-      type: "main course"
+      params,
     });
     if (status === 200) {
-      dispatch(set_random_recipes(data.recipes));
+      dispatch(set_random_recipes(data.results));
     }
   } catch (error) {
     dispatch(set_error("Failed get data"));
