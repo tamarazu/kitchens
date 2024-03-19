@@ -1,3 +1,1 @@
-const URL_RECIPES = '/recipes'
-
-export const GET_RANDOM_RECIPE = URL_RECIPES + '/complexSearch'
+export const GET_ALL_MENU = '/menu'

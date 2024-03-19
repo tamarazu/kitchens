@@ -1,7 +1,7 @@
 import types from "store/types/recipes";
 import Axios from "lib/axios";
 import { set_error, set_loading } from "./index";
-import { GET_RANDOM_RECIPE } from "lib/api";
+import { GET_ALL_MENU } from "lib/api";
 
 export const set_random_recipes = (value) => {
   return {
@@ -10,12 +10,10 @@ export const set_random_recipes = (value) => {
   };
 };
 
-export const getRandomRecipes = (params) => async (dispatch) => {
+export const getAllMenu = () => async (dispatch) => {
   try {
     dispatch(set_loading(true));
-    const { data, status } = await Axios.get(GET_RANDOM_RECIPE, {
-      params,
-    });
+    const { data, status } = await Axios.get(GET_ALL_MENU);
     if (status === 200) {
       dispatch(set_random_recipes(data.results));
     }
