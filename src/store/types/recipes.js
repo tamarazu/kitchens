@@ -1,5 +1,5 @@
 const recipesTypes = {
-  SET_RANDOM_RECIPE: "SET_RANDOM_RECIPES",
+  SET_ALL_MENU: "SET_ALL_MENU",
 };
 
 export default recipesTypes;

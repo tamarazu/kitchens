@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getAllMenu } from 'store/actions/recipes'
 import Navbar from "components/Navbar";
 
@@ -10,10 +10,13 @@ import Search from "components/mobile/LandingPage/Search";
 export default function LandingPage() {
   const dispatch = useDispatch()
   const cardLength = new Array(5).fill('');
-
+  const { randomRecipe } = useSelector(state => state.recipeReducers)
+  
   useEffect(() => {
-    dispatch(getAllMenu())
-  },[])
+    if (randomRecipe.length == 0) {
+      dispatch(getAllMenu())
+    }
+  },[randomRecipe])
 
   return (
     <>
@@ -22,8 +25,8 @@ export default function LandingPage() {
         <Search />
         <Categories />
         <div className="w-full p-2.5 grid grid-cols-2 gap-2.5">
-          {cardLength.map((index) => (
-            <Card />
+          {randomRecipe.map((value, i) => (
+            <Card content={value} key={i}/>
           ))}
         </div>
       </div>
