@@ -8,16 +8,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { getRandomRecipes } from "store/actions/recipes";
 
 export default function SimpleSlider() {
-  const dispatch = useDispatch()
-  const [ recipes, setRecipes ] = useState([])
-  const { randomRecipe } = useSelector(state => state.recipeReducers)
+  const dispatch = useDispatch();
+  const { randomRecipe } = useSelector((state) => state.recipeReducers);
   useEffect(() => {
-    console.log(randomRecipe);
-    if (!randomRecipe.length) {
-      dispatch(getRandomRecipes())
-    }
-  }, [dispatch, randomRecipe])
-
+    // console.log(randomRecipe)
+    // if (!randomRecipe.length) {
+    //   dispatch(
+    //     getRandomRecipes({
+    //       number: 6,
+    //     })
+    //   );
+    // }
+  }, [dispatch, randomRecipe]);
 
   var settings = {
     dots: true,
@@ -30,8 +32,8 @@ export default function SimpleSlider() {
   return (
     <div className="w-10/12">
       <Slider {...settings}>
-        {row.map((index) => (
-          <Card />
+        {row.map((value, index) => (
+          <Card key={index} value={value}/>
         ))}
       </Slider>
     </div>

@@ -6,7 +6,7 @@ const initialState = {
 
 const reducers = (state = initialState, action) => {
   switch (action.type) {
-    case types.SET_RANDOM_RECIPE:
+    case types.SET_ALL_MENU:
       return {
         ...state,
         randomRecipe: action.payload,
