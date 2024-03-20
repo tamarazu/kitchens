@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import types from '../types'
-import recipeReducers from './recipe'
+import menuReducers from './menu'
 
 const initialState = {
   loading: false,
@@ -26,5 +26,5 @@ const reducers = (state = initialState, action) => {
 
 export default combineReducers({
   reducers,
-  recipeReducers
+  menuReducers
 })
