@@ -1,7 +1,7 @@
 import types from "store/types/menu";
 import Axios from "lib/axios";
 import { set_error, set_loading } from "./index";
-import { GET_ALL_MENU, GET_CATEGORIES } from "lib/api";
+import { GET_ALL_MENU, GET_CATEGORIES, GET_MENU_BY_CATEGORY, GET_CATEGORY } from "lib/api";
 
 export const set_all_menu = (value) => {
   return {
@@ -36,10 +36,14 @@ export const getAllMenu = () => async (dispatch) => {
 export const getMenuByCategory = (value) => async (dispatch) => {
   try {
     dispatch(set_loading(true));
-    const { data, status } = await Axios.get(GET_ALL_MENU + `/${value}`);
+    const { data, status } = await Axios.get(GET_CATEGORY + '/menus', {
+      params: {
+        category_id: value
+      }
+    });
     if (status === 200) {
-      console.log(data);
-      dispatch(set_all_menu(data));
+      console.log(data.data);
+      dispatch(set_all_menu({data}));
     }
   } catch (error) {
     dispatch(set_error("Failed get data"));
@@ -50,6 +54,7 @@ export const getMenuByCategory = (value) => async (dispatch) => {
 };
 
 export const getCategories = () => async (dispatch) => {
+  dispatch(set_all_menu([]))
   try {
     dispatch(set_loading(true));
     const { data, status } = await Axios.get(GET_CATEGORIES);

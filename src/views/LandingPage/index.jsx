@@ -24,7 +24,7 @@ export default function LandingPage() {
         <Search />
         <Categories />
         <div className="w-full p-2.5 grid grid-cols-2 gap-2.5">
-          {menus.map((value, i) => (
+          {menus.length && menus.map((value, i) => (
             <Card content={value} key={i}/>
           ))}
         </div>
