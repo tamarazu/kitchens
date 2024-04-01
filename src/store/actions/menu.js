@@ -65,7 +65,7 @@ export const getMenuSearch = (value) => async (dispatch) => {
       },
     });
     if (status === 200) {
-      dispatch(set_all_menu(data.data))
+      dispatch(set_all_menu(data.data));
     }
   } catch (error) {
     dispatch(set_error("Failed get data"));

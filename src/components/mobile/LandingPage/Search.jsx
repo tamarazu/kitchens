@@ -1,4 +1,4 @@
-import React, { useEffect, useState , useMemo, useCallback} from "react";
+import React, { useEffect, useState, useMemo, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { getAllMenu, getMenuSearch } from "store/actions/menu";
 import { debounce } from "lodash";
@@ -12,13 +12,20 @@ export default function Search() {
     changeFilterDebounced(event.target.value);
   };
 
-  const changeFilterDebounced = useCallback(debounce(value => {
-    if (value.length) {
-      dispatch(getMenuSearch(value))
-    } else {
-      dispatch(getAllMenu())
-    }
-  }, 500, true), [])
+  const changeFilterDebounced = useCallback(
+    debounce(
+      (value) => {
+        if (value.length) {
+          dispatch(getMenuSearch(value));
+        } else {
+          dispatch(getAllMenu());
+        }
+      },
+      500,
+      true
+    ),
+    []
+  );
 
   return (
     <div className="w-full px-2.5 pb-3">
