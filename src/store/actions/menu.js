@@ -36,14 +36,13 @@ export const getAllMenu = () => async (dispatch) => {
 export const getMenuByCategory = (value) => async (dispatch) => {
   try {
     dispatch(set_loading(true));
-    const { data, status } = await Axios.get(GET_CATEGORY + '/menus', {
+    const { data, status } = await Axios.get(GET_MENU_BY_CATEGORY, {
       params: {
         category_id: value
       }
     });
     if (status === 200) {
-      console.log(data.data);
-      dispatch(set_all_menu({data}));
+      dispatch(set_all_menu(data.data));
     }
   } catch (error) {
     dispatch(set_error("Failed get data"));
