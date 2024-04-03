@@ -6,7 +6,15 @@ import {
   GET_CATEGORIES,
   GET_MENU_BY_CATEGORY,
   GET_CATEGORY,
+
 } from "lib/api";
+
+export const set_menu = (value) => {
+  return {
+    type: types.SET_MENU,
+    payload: value,
+  };
+};
 
 export const set_all_menu = (value) => {
   return {
@@ -28,6 +36,21 @@ export const getAllMenu = () => async (dispatch) => {
     const { data, status } = await Axios.get(GET_ALL_MENU);
     if (status === 200) {
       dispatch(set_all_menu(data.data));
+    }
+  } catch (error) {
+    dispatch(set_error("Failed get data"));
+    dispatch(set_loading(false));
+  } finally {
+    dispatch(set_loading(false));
+  }
+};
+
+export const getMenuById = (value) => async (dispatch) => {
+  try {
+    dispatch(set_loading(true));
+    const { data, status } = await Axios.get(GET_ALL_MENU + `/${value}` );
+    if (status === 200) {
+      dispatch(set_menu(data.data));
     }
   } catch (error) {
     dispatch(set_error("Failed get data"));

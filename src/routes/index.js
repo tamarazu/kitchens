@@ -3,7 +3,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import DetailRecipe from "views/DetailRecipe";
 import LandingPage from "views/LandingPage";
-import Recipes from "views/Recipes";
+import Recipes from "views/Menu";
 
 
 export const routes = createBrowserRouter([
@@ -12,7 +12,7 @@ export const routes = createBrowserRouter([
     element: <LandingPage/>,
   },
   {
-    path: "/recipes",
+    path: "/menu/:id",
     element: <Recipes/>,
   },
   {
