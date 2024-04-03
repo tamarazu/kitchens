@@ -5,12 +5,25 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "store/store";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserView>
+        <div className="w-full max-w-md m-auto">
+          <App />
+        </div>
+      </BrowserView>
+      <MobileView>
+        <App />
+      </MobileView>
     </Provider>
   </React.StrictMode>
 );

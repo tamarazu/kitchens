@@ -1,7 +1,8 @@
-import types from "../types/recipes";
+import types from "../types/menu";
 
 const initialState = {
-  randomRecipe: [],
+  menus: [],
+  categories: []
 };
 
 const reducers = (state = initialState, action) => {
@@ -9,8 +10,13 @@ const reducers = (state = initialState, action) => {
     case types.SET_ALL_MENU:
       return {
         ...state,
-        randomRecipe: action.payload,
+        menus: action.payload,
       };
+    case types.SET_CATEGORIES:
+      return {
+        ...state,
+        categories: action.payload
+      }
     default:
       return state;
   }
