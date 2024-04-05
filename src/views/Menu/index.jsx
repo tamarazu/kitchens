@@ -33,28 +33,35 @@ export default function Recipes() {
     console.log(menu);
   }, [id, menu]);
 
-  if (menu.name) return (
-    <>
-      <Navbar />
-      <div className="mt-16">
-        {loading ? (
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <Lottie options={defaultOptions} height={"70%"} width={"70%"} />
-          </div>
-        ) : (
-          <div className="flex flex-col gap-2 text-start">
-            <img
-              className="w-full object-cover cursor-pointer"
-              src={menu.image}
-              alt={menu.name}
-            />
-            <p className="text-xl font-semibold text-slate-800">{menu.name.toUpperCase()}</p>
-            <p className="font-semibold text-orange-800">{rupiah(menu.price)}</p>
-
-          </div>
-        )}
-      </div>
-    </>
-  );
-  return <></>
+  if (menu.name)
+    return (
+      <>
+        <Navbar />
+        <div className="mt-16">
+          {loading ? (
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+              <Lottie options={defaultOptions} height={"70%"} width={"70%"} />
+            </div>
+          ) : (
+            <div className="flex flex-col gap-2 text-start">
+              <img
+                className="w-full object-cover cursor-pointer"
+                src={menu.image}
+                alt={menu.name}
+              />
+              <p className="text-xl font-semibold text-slate-800">
+                {menu.name.toUpperCase()}
+              </p>
+              <p className="font-semibold text-orange-800">
+                {rupiah(menu.price)}
+              </p>
+              <div className="w-fit my-2 px-2 py-1.5 rounded bg-slate-300 text-slate-700 font-semibold">
+                <p>Rice & Pasta</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </>
+    );
+  return <></>;
 }
