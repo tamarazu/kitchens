@@ -16,6 +16,13 @@ export const set_menu = (value) => {
   };
 };
 
+export const set_table_number = (value) => {
+  return {
+    type: types.SET_TABLE_NUMBER,
+    payload: value
+  }
+}
+
 export const set_all_menu = (value) => {
   return {
     type: types.SET_ALL_MENU,

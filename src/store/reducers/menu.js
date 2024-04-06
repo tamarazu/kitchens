@@ -2,6 +2,7 @@ import types from "../types/menu";
 
 const initialState = {
   menu: {},
+  tableNumber: 0,
   menus: [],
   categories: []
 };
@@ -12,6 +13,11 @@ const reducers = (state = initialState, action) => {
       return {
         ...state,
         menu: action.payload
+      }
+    case types.SET_TABLE_NUMBER:
+      return {
+        ...state,
+        tableNumber: action.payload
       }
     case types.SET_ALL_MENU:
       return {
