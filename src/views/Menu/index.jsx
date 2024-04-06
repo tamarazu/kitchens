@@ -49,15 +49,12 @@ export default function Recipes() {
                 src={menu.image}
                 alt={menu.name}
               />
-              <p className="text-xl font-semibold text-slate-800">
+              <p className="px-4 text-xl font-semibold text-slate-800">
                 {menu.name.toUpperCase()}
               </p>
-              <p className="font-semibold text-orange-800">
+              <p className="px-4 font-semibold text-orange-800">
                 {rupiah(menu.price)}
               </p>
-              <div className="w-fit my-2 px-2 py-1.5 rounded bg-slate-300 text-slate-700 font-semibold">
-                <p>Rice & Pasta</p>
-              </div>
             </div>
           )}
         </div>
