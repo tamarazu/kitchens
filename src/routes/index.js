@@ -4,19 +4,23 @@ import { createBrowserRouter } from "react-router-dom";
 import DetailRecipe from "views/DetailRecipe";
 import LandingPage from "views/LandingPage";
 import Recipes from "views/Recipes";
-
+import Order from "views/Order";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
-    element: <LandingPage/>,
+    element: <LandingPage />,
+  },
+  {
+    path: "/order",
+    element: <Order />,
   },
   {
     path: "/recipes",
-    element: <Recipes/>,
+    element: <Recipes />,
   },
   {
     path: "/recipes/:id",
-    element: <DetailRecipe/>,
+    element: <DetailRecipe />,
   },
 ]);
